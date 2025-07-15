@@ -1,6 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
+import ak47redline from '../assets/ak47redline.png';
+import awpasssimov from '../assets/awpasssimov.png';
+import glockfade from '../assets/glockfade.png';
+
 
 const productos = [
   {
@@ -8,7 +12,7 @@ const productos = [
     nombre: 'AK-47 | Redline',
     categoria: 'rifles',
     precio: 120,
-    imagen: 'ak47redline',
+    imagen: ak47redline,
     descripcion: 'Skin de rifle popular y elegante.'
   },
   {
@@ -16,7 +20,7 @@ const productos = [
     nombre: 'AWP | Asiimov',
     categoria: 'snipers',
     precio: 300,
-    imagen: 'awpasssimov',
+    imagen: awpasssimov,
     descripcion: 'Sniper de alta gama con estilo sci-fi.'
   },
   {
@@ -24,7 +28,7 @@ const productos = [
     nombre: 'Glock-18 | Fade',
     categoria: 'pistolas',
     precio: 85,
-    imagen: 'glock',
+    imagen: glockfade,
     descripcion: 'Skin de pistola con degradado.'
   }
 ];
