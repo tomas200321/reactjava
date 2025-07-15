@@ -2,6 +2,7 @@ import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
 import { ItemListContainer } from './components/ItemListContainer';
+import { ItemDetailContainer } from './components/ItemDetailContainer';
 
 function App() {
   return (
@@ -9,9 +10,9 @@ function App() {
       <Navbar />
       <div className="container">
         <Routes>
-          <Route path="/" element={<ItemListContainer greeting="Bienvenido a la tienda de skins de CS2" />} />
-          <Route path="/simulador" element={<h1>Simulador</h1>} />
-          <Route path="/carrito" element={<h1>Carrito</h1>} />
+          <Route path="/" element={<ItemListContainer greeting="Todos los skins disponibles" />} />
+          <Route path="/categoria/:categoriaId" element={<ItemListContainer greeting="Categoría seleccionada" />} />
+          <Route path="/item/:itemId" element={<ItemDetailContainer />} />
         </Routes>
       </div>
     </Router>
@@ -19,4 +20,5 @@ function App() {
 }
 
 export default App;
+
 
