@@ -1,18 +1,25 @@
-import '../App.css';
-import { Link } from 'react-router-dom';
-import { CartWidget } from './CartWidget';
+import { Link } from "react-router-dom";
+import { useCart } from "../context/CartContext";
 
-export const Navbar = () => {
+const Navbar = () => {
+  const { cart } = useCart();
+  const totalQuantity = cart.reduce((acc, item) => acc + item.quantity, 0);
+
   return (
     <header className="header">
       <div className="logo">CS2 Shop</div>
       <nav className="nav-links">
         <Link to="/">Inicio</Link>
-        <Link to="/categoria/rifles">Rifles</Link>
-        <Link to="/categoria/snipers">Snipers</Link>
-        <Link to="/categoria/pistolas">Pistolas</Link>
-        <CartWidget />
+        <Link to="/simulador">Simulador</Link>
+        <Link to="/carrito">
+          Carrito {totalQuantity > 0 && `(${totalQuantity})`}
+        </Link>
       </nav>
     </header>
   );
 };
+
+export default Navbar;
+
+
+

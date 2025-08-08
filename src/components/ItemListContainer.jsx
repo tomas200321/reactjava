@@ -1,43 +1,37 @@
-import { useEffect, useState } from 'react'; 
-import { useParams, Link } from 'react-router-dom';
+import React from "react";
+import { useProducts } from "../context/ProductsContext";
+import { Link } from "react-router-dom";
 
-import ak47redline from '../assets/ak47redline.png';
-import awpasssimov from '../assets/awpasssimov.png';
-import glockfade from '../assets/glockfade.png';
+import ak47redline from "../assets/ak47redline.png";
+import awpasssimov from "../assets/awpasssimov.png";
+import glockfade from "../assets/glockfade.png";
+import desertblaze from "../assets/desertblaze.png";
+import m4a4howl from "../assets/m4a4howl.png";
 
-const productos = [
-  { id: '1', nombre: 'AK-47 | Redline', categoria: 'rifles', precio: 120, imagen: ak47redline },
-  { id: '2', nombre: 'AWP | Asiimov', categoria: 'snipers', precio: 300, imagen: awpasssimov },
-  { id: '3', nombre: 'Glock-18 | Fade', categoria: 'pistolas', precio: 85, imagen: glockfade }
-];
+const localImages = {
+  "AK-47 | Redline": ak47redline,
+  "AWP | Asiimov": awpasssimov,
+  "Glock-18 | Fade": glockfade,
+  "Desert Eagle | Blaze": desertblaze,
+  "M4A4 | Howl": m4a4howl,
+};
 
-export const ItemListContainer = ({ greeting }) => {
-  const { categoriaId } = useParams();
-  const [items, setItems] = useState([]);
+const ItemListContainer = ({ greeting }) => {
+  const { products, loading } = useProducts();
 
-  useEffect(() => {
-    const fetchProductos = new Promise((resolve) => {
-      setTimeout(() => {
-        if (categoriaId) {
-          resolve(productos.filter(p => p.categoria === categoriaId));
-        } else {
-          resolve(productos);
-        }
-      }, 500);
-    });
-
-    fetchProductos.then(res => setItems(res));
-  }, [categoriaId]);
+  if (loading) {
+    return <p style={{ color: "white", textAlign: "center" }}>Cargando productos...</p>;
+  }
 
   return (
     <div className="item-list-container">
       <h2>{greeting}</h2>
       <div className="item-grid">
-        {items.map(prod => (
+        {products.map((prod) => (
           <div key={prod.id} className="item-card">
-            <img src={prod.imagen} alt={prod.nombre} />
-            <h3>{prod.nombre}</h3>
-            <p>${prod.precio}</p>
+            <img src={localImages[prod.name] || prod.image} alt={prod.name} />
+            <h3>{prod.name}</h3>
+            <p>${prod.price}</p>
             <Link to={`/item/${prod.id}`}>
               <button>Ver detalle</button>
             </Link>
@@ -47,4 +41,12 @@ export const ItemListContainer = ({ greeting }) => {
     </div>
   );
 };
+
+export default ItemListContainer;
+
+
+
+
+
+
 

@@ -1,0 +1,124 @@
+.cart-container {
+  color: #fff;
+  max-width: 700px;
+  margin: 40px auto;
+  background-color: #1e1e2f;
+  border-radius: 12px;
+  padding: 25px 30px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.7);
+}
+
+.cart-container h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-weight: 700;
+  font-size: 2rem;
+  letter-spacing: 1.2px;
+}
+
+.cart-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+}
+
+.cart-item {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 10px;
+  border-bottom: 1px solid #444666;
+}
+
+.cart-item h3 {
+  flex: 1 1 200px;
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.cart-item p {
+  margin: 5px 15px 5px 0;
+  min-width: 100px;
+}
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+}
+
+.quantity-controls button {
+  background-color: #292a4a;
+  border: none;
+  color: #fff;
+  font-size: 1.3rem;
+  padding: 6px 12px;
+  margin: 0 6px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.quantity-controls button:hover {
+  background-color: #444777;
+}
+
+.remove-button {
+  background-color: #a83333;
+  border: none;
+  color: #fff;
+  padding: 7px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-weight: 600;
+}
+
+.remove-button:hover {
+  background-color: #cc4444;
+}
+
+.cart-total {
+  font-weight: 700;
+  font-size: 1.5rem;
+  text-align: right;
+  margin-bottom: 20px;
+}
+
+.cart-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+}
+
+.cart-actions button {
+  background-color: #395bd8;
+  border: none;
+  color: white;
+  padding: 12px 28px;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+}
+
+.cart-actions button:hover {
+  background-color: #5379e5;
+}
+
+.cart-empty {
+  color: #ccc;
+  text-align: center;
+  font-size: 1.3rem;
+  margin-top: 60px;
+}
+
+.cart-empty a {
+  color: #5379e5;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.cart-empty a:hover {
+  text-decoration: underline;
+}
